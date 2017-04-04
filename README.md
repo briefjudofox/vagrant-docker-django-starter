@@ -1,10 +1,11 @@
 # vagrant-docker-django-starter
 
-Notes on setting up a boilerplate vagrant, docker, django, postgres project using cookiecutter
+Notes on setting up a boilerplate vagrant, docker, django, postgres project using [cookiecutter-django](https://github.com/pydanny/cookiecutter-django)
 
 # Add docker ready vagrant box (optional)
 
 `vagrant box add williamyeh/ubuntu-trusty64-docker`
+([Thanks William Yeh](https://github.com/William-Yeh))
 
 ## Create your project dir on the host machine
 `mkdir whatever; cd whatever`
