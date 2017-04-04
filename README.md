@@ -49,18 +49,22 @@ Notes on setting up a boilerplate vagrant, docker, django, postgres project usin
 `docker ps`
 
 ## Install Postgres Client
-`sudo apt-get install software-properties-common python-software-properties`
-`sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"`
-`wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
-`sudo apt-get update`
-`sudo apt-get install postgresql-client-9.6`
+```shell
+sudo apt-get install software-properties-common python-software-properties
+sudo add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main"
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install postgresql-client-9.6
+```
 
 ## Get shell on postgres docker container and use psql
 `docker exec -it <your postgres container id> bash`
 
 ### To see all dbs
-`psql -U postgres `
-`\l`
+```shell
+psql -U postgres
+\l
+```
 
 ### To see django db where "demoz" is your db name
 `psql demoz postgres`
@@ -70,9 +74,13 @@ Notes on setting up a boilerplate vagrant, docker, django, postgres project usin
 `psql -h 172.18.0.2 -p 5432 -U postgres -d demoz`
 
 ## Add port forwarding configs to your .Vagrant file and reload vagrant
- `config.vm.network "forwarded_port", guest: 80, host: 8080`
- `config.vm.network "forwarded_port", guest: 8000, host: 8000`
+```shell
+config.vm.network "forwarded_port", guest: 80, host: 8080
+config.vm.network "forwarded_port", guest: 8000, host: 8000
+```
 
 ## Add allowable IPs and Hosts to your django settings (SEE .../config/settings/local.py)
-`ALLOWED_HOSTS = ['localhost', '127.0.0.1']`
-`INTERNAL_IPS = ['localhost','127.0.0.1', '10.0.2.2', ]`
+```shell
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+INTERNAL_IPS = ['localhost','127.0.0.1', '10.0.2.2', ]
+```
